@@ -127,7 +127,7 @@ export const DEFAULT_API_CONFIG: ApiConfig = {
     voiceModelId: '',
 };
 
-export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000';
 
 // ============================================================================
 // 辅助函数

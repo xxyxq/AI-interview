@@ -3,7 +3,11 @@
  * 统一管理 API 基础 URL 和请求工具
  */
 
-export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+// Docker 环境下 NEXT_PUBLIC_API_URL 设为 '.'，API 请求走相对路径（由 nginx 代理）
+// 本地开发时设为 'http://localhost:8000' 或不设置（默认 localhost:8000）
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL === '.'
+    ? ''
+    : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000');
 
 /**
  * 获取用户 ID（从 localStorage）

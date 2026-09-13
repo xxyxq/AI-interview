@@ -137,11 +137,14 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# 配置 CORS - 支持环境变量动态配置允许的前端域名
-_cors_origins = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
+# 配置 CORS - 允许的前端域名
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=_cors_origins,
+    allow_origins=[
+        "https://interview.1624899.xyz",  # Cloudflare Pages 域名
+        "https://ai-interview-63l.pages.dev",           # Cloudflare Pages 主域名
+        "http://localhost:3000",                         # 本地开发
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

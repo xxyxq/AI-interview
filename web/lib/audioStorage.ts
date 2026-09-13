@@ -126,7 +126,7 @@ export async function getAudioUrl(id: string): Promise<string | null> {
 
     // 如果 id 看起来像是一个后端静态资源路径 (例如 static/audio/...)
     if (id.includes('/')) {
-        const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000';
         // 确保没有多余的斜杠
         const cleanBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
         const cleanId = id.startsWith('/') ? id : `/${id}`;

@@ -69,7 +69,7 @@ export function InterviewArea({ children }: InterviewAreaProps) {
             if (iscloning) return;
             setIsCloning(true);
             try {
-                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/sessions/${currentSession.session_id}/next-round`, {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'}/api/sessions/${currentSession.session_id}/next-round`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -111,7 +111,7 @@ export function InterviewArea({ children }: InterviewAreaProps) {
             const apiConfig = useInterviewStore.getState().getApiConfigForRequest();
 
             try {
-                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/voice/summary`, {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'}/api/voice/summary`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({

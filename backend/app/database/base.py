@@ -23,19 +23,15 @@ class DatabaseManager:
     async def connect(self):
         """建立 PostgreSQL 连接池"""
         if not self._pool:
-            pool_kwargs = {
-                "host": POSTGRES_CONFIG["host"],
-                "port": POSTGRES_CONFIG["port"],
-                "user": POSTGRES_CONFIG["user"],
-                "password": POSTGRES_CONFIG["password"],
-                "database": POSTGRES_CONFIG["database"],
-                "min_size": 2,
-                "max_size": 10,
-            }
-            # 外部云数据库需要 SSL
-            if "ssl" in POSTGRES_CONFIG:
-                pool_kwargs["ssl"] = POSTGRES_CONFIG["ssl"]
-            self._pool = await asyncpg.create_pool(**pool_kwargs)
+            self._pool = await asyncpg.create_pool(
+                host=POSTGRES_CONFIG["host"],
+                port=POSTGRES_CONFIG["port"],
+                user=POSTGRES_CONFIG["user"],
+                password=POSTGRES_CONFIG["password"],
+                database=POSTGRES_CONFIG["database"],
+                min_size=2,
+                max_size=10
+            )
             logger.info(f"PostgreSQL 连接池已建立")
 
     async def disconnect(self):

@@ -3,7 +3,6 @@ PostgreSQL 数据库配置模块
 """
 
 import os
-import ssl
 import logging
 from urllib.parse import urlparse
 
@@ -16,32 +15,21 @@ DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:123456@localhost
 def get_postgres_config() -> dict:
     """
     解析 PostgreSQL 连接配置
-
+    
     Returns:
         dict: 包含 host, port, user, password, database 的配置
     """
     # 移除 asyncpg 驱动标识
     url = DATABASE_URL.replace("postgresql+asyncpg://", "postgresql://")
     parsed = urlparse(url)
-
-    host = parsed.hostname or "localhost"
-    config = {
-        "host": host,
+    
+    return {
+        "host": parsed.hostname or "localhost",
         "port": parsed.port or 5432,
         "user": parsed.username or "postgres",
         "password": parsed.password or "",
         "database": parsed.path.lstrip("/") or "ai_interview",
     }
-
-    # 外部云数据库（Supabase/Neon/Render 等）需要 SSL
-    if host not in ("localhost", "127.0.0.1", "db", "postgres"):
-        ctx = ssl.create_default_context()
-        ctx.check_hostname = False
-        ctx.verify_mode = ssl.CERT_NONE
-        config["ssl"] = ctx
-        logger.info("数据库连接启用 SSL（外部主机）")
-
-    return config
 
 
 def get_postgres_dsn() -> str:

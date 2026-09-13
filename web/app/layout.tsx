@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "面面-AI求职助手",
+  title: "肖欣睿-AI求职助手",
   description: "智能求职助手，提供模拟面试和简历优化服务",
 };
 

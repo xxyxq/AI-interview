@@ -241,7 +241,7 @@ export default function InterviewPage() {
       const questionIndex = Math.max(0, aiMessageCount - 1);
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/chat/hint/${threadId}/${questionIndex}`
+        `${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'}/api/chat/hint/${threadId}/${questionIndex}`
       );
 
       if (!response.ok) {
@@ -272,7 +272,7 @@ export default function InterviewPage() {
 
     // 1. 克隆会话
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/voice/clone`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'}/api/voice/clone`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -661,7 +661,7 @@ export default function InterviewPage() {
                                         });
 
                                         // 1. 创建下一轮会话
-                                        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/sessions/${currentSession.session_id}/next-round`, {
+                                        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'}/api/sessions/${currentSession.session_id}/next-round`, {
                                           method: 'POST',
                                           headers: {
                                             'Content-Type': 'application/json',
@@ -690,7 +690,7 @@ export default function InterviewPage() {
                                           throw new Error('请先配置 API');
                                         }
 
-                                        const startResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/chat/start`, {
+                                        const startResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'}/api/chat/start`, {
                                           method: 'POST',
                                           headers: {
                                             'Content-Type': 'application/json',

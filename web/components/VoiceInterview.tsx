@@ -120,7 +120,7 @@ export function VoiceInterview({ sessionId, onEnd }: VoiceInterviewProps) {
                     return;
                 }
 
-                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/voice/start`, {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'}/api/voice/start`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -278,7 +278,7 @@ export function VoiceInterview({ sessionId, onEnd }: VoiceInterviewProps) {
             if (abortControllerRef.current) abortControllerRef.current.abort();
             abortControllerRef.current = new AbortController();
 
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/voice/chat`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'}/api/voice/chat`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 signal: abortControllerRef.current.signal,
@@ -401,7 +401,7 @@ export function VoiceInterview({ sessionId, onEnd }: VoiceInterviewProps) {
             if (abortControllerRef.current) abortControllerRef.current.abort();
             abortControllerRef.current = new AbortController();
 
-            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/voice/chat`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000'}/api/voice/chat`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 signal: abortControllerRef.current.signal,

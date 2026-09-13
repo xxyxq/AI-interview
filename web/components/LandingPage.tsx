@@ -24,7 +24,7 @@ export function LandingPage({ onNavigate }: LandingPageProps) {
                     {/* [自定义修改] 已移除左上角logo和品牌名，保留空白防止导航跳位
                         如需还原：从 _backup_web/LandingPage.tsx.bak 复制第24-27行 */}
                     <div className="flex items-center gap-2 font-bold text-xl text-gray-900 invisible" aria-hidden="true">
-                        <span>面面-AI求职助手</span>
+                        <span>肖欣睿-AI求职助手</span>
                     </div>
 
                     <nav className="hidden md:flex items-center gap-15 text-base font-medium text-gray-600">

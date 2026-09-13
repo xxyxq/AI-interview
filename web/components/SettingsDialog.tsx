@@ -114,7 +114,7 @@ function ModelFormDialog({ open, onClose, onSave, editingModel, initialValues }:
         setTestResult(null);
 
         try {
-            const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+            const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000';
             const response = await fetch(`${API_BASE_URL}/api/config/validate`, {
                 method: 'POST',
                 headers: {
