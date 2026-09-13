@@ -28,7 +28,7 @@
 
 ## 📖 项目简介
 
-面面-AI求职助手是一个利用大语言模型（LLM）和 LangGraph 状态机技术构建的综合求职辅助系统。它不仅能进行全真模拟面试，还能像专业的职业咨询师一样，通过多智能体协作（Multi-Agent）对简历进行深度诊断和定向优化，帮助求职者全方位提升竞争力。现已上线测试：[面面-AI求职助手](https://interview.1624899.xyz)
+AI 面试 & 简历智能体是一个利用大语言模型（LLM）和 LangGraph 状态机技术构建的综合求职辅助系统。它不仅能进行全真模拟面试，还能像专业的职业咨询师一样，通过多智能体协作（Multi-Agent）对简历进行深度诊断和定向优化，帮助求职者全方位提升竞争力。
 
 ### 🎬 演示
 
@@ -322,9 +322,10 @@ docker-compose --env-file .env.production up -d --build
 - [FastAPI](https://fastapi.tiangolo.com/) - 现代高性能 Python Web 框架
 - [Next.js](https://nextjs.org/) - React 全栈框架
 - [shadcn/ui](https://ui.shadcn.com/) - 精美的 UI 组件库
+- [Trae](https://www.trae.ai/) - AI 编程助手，协助完成项目开发与优化
 
 ---
 
 <p align="center">
-  Made with ❤️ by 肖欣睿
+  Made with ❤️ by xxr
 </p>
