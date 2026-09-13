@@ -316,20 +316,6 @@ docker-compose --env-file .env.production up -d --build
 
 ---
 
-## 许可证
-
-本项目采用 **非商业使用许可证 (Non-Commercial Use License)**
-
-- 允许：个人学习、研究、教育用途
-- 允许：非商业性质的内部使用
-- **禁止：未经授权的任何商业使用**
-
-如需商业授权，请联系作者：1624899229@qq.com
-
-详见 [LICENSE](LICENSE) 文件
-
----
-
 ## 🙏 致谢
 
 - [LangGraph](https://langchain-ai.github.io/langgraph/) - 强大的 AI Agent 工作流引擎
@@ -340,5 +326,5 @@ docker-compose --env-file .env.production up -d --build
 ---
 
 <p align="center">
-  Made with ❤️ by zzt
+  Made with ❤️ by 肖欣睿
 </p>
